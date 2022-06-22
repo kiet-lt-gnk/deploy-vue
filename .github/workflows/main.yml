@@ -54,3 +54,7 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: 'us-west-2'
+      # Runs a single command using the runners shell
+      - name: Send noti to lark bot
+        run: |
+          curl -H "Content-Type: application/json" -X POST -d '{"msg_type":"interactive","card":{"config":{"wide_screen_mode":true},"elements":[{"fields":[{"is_short":true,"text":{"content":"** 🗳 \tSOURCE **\nFE-Areas","tag":"lark_md"}},{"is_short":true,"text":{"content":"** 📅 \tDATE**\n${{ github.event.repository.updated_at}}","tag":"lark_md"}},{"is_short":false,"text":{"content":"","tag":"lark_md"}},{"is_short":true,"text":{"content":"**👤 \tBY WHO**\n${{ github.event.pull_request.user.login }}","tag":"lark_md"}},{"is_short":true,"text":{"content":"**📍\tBRANCH**\ncanary","tag":"lark_md"}}],"tag":"div"},{"actions":[{"tag":"button","text":{"content":"View pull request","tag":"plain_text"},"type":"primary","url":"${{ github.event.pull_request._links.html.href }}"}],"tag":"action"}],"header":{"template":"green","title":{"content":"NEW PULL REQUEST","tag":"plain_text"}}}}' ${{secrets.LARK_BOT}}
