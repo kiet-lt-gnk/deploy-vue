@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Notification when deployed!!!" />
+    <HelloWorld msg="GitHub Actions is running!!!" />
   </div>
 </template>
 
