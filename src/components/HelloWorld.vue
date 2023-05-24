@@ -44,6 +44,7 @@
       </li>
     </ul>
     <h3>Essential Links</h3>
+    <br>
     <ul>
       <li>
         <a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a>
